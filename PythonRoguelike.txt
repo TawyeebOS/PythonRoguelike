@@ -1,0 +1,109 @@
+Idea: 
+Text-based terminal game
+Single player game - enemy AI
+Replayability - randomized
+
+
+Game:
+Roguelike with rpg elements
+
+Key Components:
+- Permadeath
+- Procedural Generation (Randomized maps/ dungeons)
+- Active Items and Passive items (Abilities) (with synergies)
+- Turned - based Combat
+- Enemies, minibosses and bosses with item drops
+- Treasure chests with loot
+- Shop
+- (unlockable characters)
+
+Micro Gameplay:
+- shows map of current room
+- turned based combat - attack, block, item, flee 
+- when enter room either explore or leave room
+- explore room - either find enemy or chest or both, prio enemy, (small chance chest is a mimic)
+- leave room - give direction of adjacent rooms to enter, special rooms: boss room, chest room, shop, (ambush room)
+- boss room - Boss taunts player, enter combat, shows health bar of boss
+- (enemy room - multiple waves of enemies, one after another)
+- chest room - room with a chest, requires a key
+- (shop - room with purchasable items and consumables like keys or health)
+
+Macro Gameplay:
+- 5 Dungeon levels
+- Dungeons get progressively bigger, the deeper the level
+- Enemies get stronger the deeper the level
+- Loot from chests gets better at deeper levels
+- Some enemies spawn at certain levels - some enemies drop specific loot
+- Mini-Bosses in floors 1-4 (can be randomized), (possibly from a pool of more bosses)
+- Final boss at last floor
+- (Secret ending by collecting certain items?)
+- (achievements)
+
+Theme:
+- Basic RPG enemies: slimes, skeletons, ghouls
+- each floor has a different theme (elements)
+- top floor: overworld, forest - slimes, giant rats, wild boards, 
+- second floor: underground/ dungeon/ graveyard - skeletons, ghouls, wraiths, bats, 
+- third floor: sandy, desert - giant scorpions, snakes, vultures
+- fourth floor: ice, tundra - wolves, snow golems, snow elementals 
+- final floor: hellish, magma - fire elementals, moving magma, demons, fallen angel  
+- maybe instead of floors its areas accessed by portals
+- (possible basic enemies with regional variants, e.g slime in forest, ice slime in tundra)
+- (elemental resistances/ weaknesses?)
+
+Objects:
+- Game
+	- Menu
+
+- Entity
+	- Player
+	- Enemy 
+		- Boss
+- item
+	- active
+		- bandages: +10 c_hp
+		- health potion: +30 c_hp
+		- elixir of rage: +10 c_att
+		- elixir of steel: +10 c_def
+		- elixir of swiftness: +10 c_spd
+		- antidote: cures poison
+		- holy water: cures cursed
+		- eye drops: cures blindness
+		- portable lighter: cures frosted
+		- icepack: cures scorched
+	- passive
+		- woodenBat: +5 m_att
+		- woolenShirt: +5 m_hp
+		- potLid: +5 m_def
+		- oldBoots: +5 m_spd
+		- silverRing: +5 m_luck
+		
+		- dagger: +10 m_att
+		- leatherShirt: +10 m_hp
+		- leatherShield: +10 m_def
+		- woodenClogs: +10 m_spd
+		- goldRing: +10 m_luck
+
+		- steelSword: +15 m_att
+		- chainmail: +15 m_hp
+		- ironShield: +15 m_def
+		- ironBoots: +15 m_spd
+		- diamondRing: +15 m_luck
+		
+	- boss room
+	- chest room
+- floor
+	- forest
+	- graveyard
+	- desert
+ 	- tundra
+	- volcano
+
+
+
+
+
+\ /
+o o
+ >
+---
