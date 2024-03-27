@@ -27,4 +27,4 @@ class Room:
         """
         self.adjecent_rooms[pos] = room
     
-S
+
