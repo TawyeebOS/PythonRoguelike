@@ -16,7 +16,7 @@ class Scene(ABC):
 
     """
 
-    def __init__(name: str, description, str):
+    def __init__(self, name: str, description, str):
         """
         Name: Name of the Scene
         Description: What the scene represents
@@ -27,12 +27,12 @@ class Scene(ABC):
         self._name = name
         self._description = description
 
-    def getSceneName():
+    def getSceneName(self):
         """Returns the name of the scene"""
         return self._name
 
     
-    def quit(command: Command):
+    def quit(self, command: Command):
         """
         Checks to see if only "quit" was entered before quitting the game
         Returns a boolean True if only "quit" was typed and False otherwise
@@ -44,10 +44,10 @@ class Scene(ABC):
         else:
             return True     # this signals that we want to quit the game
     
-    def isCommand(word: str):
+    def isCommand(self, word: str):
         """
         Assumes word is a string
-        Returns True if word is a command word
+        Returns True if word is a command word, false otherwise
         """
 
         for i in range(len(validCommands)):
@@ -56,7 +56,7 @@ class Scene(ABC):
 
         return False
 
-    def showAll():
+    def showAll(self):
         """Prints all valid commands for this scene to standard output"""
         for command in validCommands:
             print(command + " ", end="\r")
@@ -65,7 +65,7 @@ class Scene(ABC):
 
 
     @abstractmethod
-    def printHelp():
+    def printHelp(self):
         """ Displays some useful information about the current scene"""
         pass
 
@@ -99,7 +99,7 @@ class OverworldScene(Scene):
     You are in the chamber of secrets
     """
 
-    def __init__(currentRoom: Room):
+    def __init__(self, currentRoom: Room):
         """
         currentRoom: The room the player is current occupying 
         Assumes currentRoom is a Room object.
@@ -108,7 +108,7 @@ class OverworldScene(Scene):
         self.__currentRoom: Room = currentRoom 
         self.__tempInv: Item = None # temporary inventory for storing discovered items
 
-    def goRoom(command: Command):
+    def goRoom(self, command: Command):
         """
         Assumes command is a Command
         Attempts to move to a room in the direction specified
@@ -137,7 +137,7 @@ class OverworldScene(Scene):
 
         return currentRoom
         
-    def goBack():
+    def goBack(self):
             """
             Moves the player to the previous accessed room. If the player is 
                 back at the start, this does nothing.
@@ -158,7 +158,24 @@ class OverworldScene(Scene):
 
             return currentRoom
 
+    def accessTempInv(self):
+        """
+        Returns the item in the temporary inventory
+        """
+        item = Item(tempInv)
+        tempInv = None
+        return item
 
 
+    def printHelp(self):
+        """
+        Displays useful information about the current scene
+        """
+    
+        print("Overworld")
+        print("You can move between rooms and search for items")
+        print("Let's hope you don't run into anything while searching")
+        print("Your command words are:")
+        self.showAll()
 
 
